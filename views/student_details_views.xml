@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="student_details_form_view" model="ir.ui.view">
+        <field name="name">Student Details</field>
+        <field name="model">student.details</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="assign_rollno" string="Assign Roll No" type="object" class="oe_highlight" attrs="{'invisible':[('rollno','!=',False)]}"/>
+                </header>
+                <sheet>
+                    <field name="photo" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1 class="d-flex">
+                            <field name="name" placeholder="Student's Name" required="True"/>
+                        </h1>
+                    </div> 
+
+                    <group>
+                        <group>
+                            <field name="email"/>
+                            <field name="mobile_no"/>
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Street..." class="o_address_street"/>
+                                <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                <field name="city" placeholder="City" class="o_address_city"/>
+                                <field name="state" class="o_address_state" placeholder="State" options="{&quot;no_open&quot;: True}"/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                <field name="country" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
+                            </div>
+                        </group>
+
+                        <group>
+
+                            <field name="rollno"/>
+                            <field name="course"/>
+                            <field name="class_name"/>
+                        </group>
+                    </group> 
+                    
+                    <notebook>
+                        <page string="First Assessment">
+                            <field name="first_results" context="{'default_is_first_assessment':True}">
+                                <tree editable="bottom">
+                                    <field name="subject"/>
+                                    <field name="teacher"/>
+                                    <field name="obtained_marks"/>
+                                    <field name="total_marks"/>
+                                    <field name="percentage"/>
+                                    <field name="grade"/>
+                                    <field name="is_first_assessment" invisible="1"/>
+                                    <field name="is_second_assessment" invisible="1"/>
+                                    <field name="is_final_assessment" invisible="1"/>
+
+                                </tree>
+                            </field>
+                            <group class="oe_right">
+                                <field name="first_total"/>
+                                <field name="first_percentage"/>
+                                <field name="first_grade"/>
+
+                            </group>
+                        </page>
+                        <page string="Second Assessment">
+                            <field name="second_results" context="{'default_is_second_assessment':True}">
+                                <tree editable="bottom">
+                                    <field name="subject"/>
+                                    <field name="teacher"/>
+                                    <field name="obtained_marks"/>
+                                    <field name="total_marks"/>
+                                    <field name="percentage"/>
+                                    <field name="grade"/>
+                                    <field name="is_first_assessment" invisible="1"/>
+                                    <field name="is_second_assessment" invisible="1"/>
+                                    <field name="is_final_assessment" invisible="1"/>
+                                </tree>
+                            </field>
+                            <group class="oe_right">
+                                <field name="second_total"/>
+                                <field name="second_percentage"/>
+                                <field name="second_grade"/>
+
+                            </group>
+                        </page>
+                        <page string="Final Assessment">
+                            <field name="final_results" context="{'default_is_final_assessment':True}">
+                                <tree editable="bottom">
+                                    <field name="subject"/>
+                                    <field name="teacher"/>
+                                    <field name="obtained_marks"/>
+                                    <field name="total_marks"/>
+                                    <field name="percentage"/>
+                                    <field name="grade"/>
+                                    <field name="is_first_assessment" invisible="1"/>
+                                    <field name="is_second_assessment" invisible="1"/>
+                                    <field name="is_final_assessment" invisible="1"/>
+                                </tree>
+                            </field>
+                            <group class="oe_right">
+                                <field name="final_total"/>
+                                <field name="final_percentage"/>
+                                <field name="final_grade"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="seq_student_rollno" model="ir.sequence">
+        <field name="name">Roll No</field>
+        <field name="code">student.details</field>
+        <field name="prefix">ST</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="student_details_action" model="ir.actions.act_window">
+        <field name="name">Student Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">student.details</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_smiling_face">Create Student Records</p>
+        </field>
+    </record>
+
+    <menuitem 
+        name="Students" 
+        id="student_details_menu"  
+        action="student_details_action"
+        web_icon="logic_base/static/description/icon.png"
+        sequence="6"
+    />
+    <menuitem 
+        id="student_details_student_menu" 
+        name="Students" 
+        action="student_details_action" 
+        parent="student_details_menu"
+        sequence="5"
+    />
+</odoo>

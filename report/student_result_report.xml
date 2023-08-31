@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="student_result_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t>
+                    <div class="page">
+                        <style>
+                            p {
+                                font-size: 15px;
+                            }
+                            table {
+                              font-family: arial, sans-serif;
+                              border-collapse: collapse;
+                              width: 100%;
+                            }
+                            
+                            td, th {
+                              font-size: 13px;
+                              border: 2px solid #dddddd;
+                              text-align: left;
+                              padding: 6px;
+                            }
+                            
+                        </style>
+                        <div class="row page">
+                            <div align="center">
+                                <h2><u>Student Report</u></h2>
+                                <br/>
+                            </div>
+                            <p style="line-height: 2;">
+                                <span t-if="o.name">Name: <b><span t-field="o.name"/></b><br/></span>
+                                <span t-if="o.rollno">Roll No: <b><span t-field="o.rollno"/></b><br/></span>
+                                <span t-if="o.class_name">Class: <b><span t-field="o.class_name"/></b><br/></span>
+                                <span t-if="o.course">Course: <b><span t-field="o.course"/></b><br/></span>
+
+                            </p>
+                            <br/>
+                            <div class="row">
+                                <h4>First Assessment:</h4>
+                                <table>
+                                    <!-- In case we want to repeat the header, remove "display: table-row-group" -->
+                                    <thead style="display: table-row-group">
+                                        <tr>
+                                            <!-- added header to display indexes -->
+                                            <th name="th_index" class="text-start">SL No</th>
+                                            <th name="th_description" class="text-start">Subject</th>
+                                            <th name="th_scored" class="text-end">Scored Marks</th>
+                                            <th name="th_total" class="text-end">Total Marks</th>
+                                            <th name="th_percentage" class="text-end">Percentage</th>
+                                            <th name="th_grade" class="text-end">Grade</th>
+
+                                        </tr>
+                                    </thead>
+        
+                                    <tbody class="">
+                                        <!-- added variable 'index' to increment index on each iteration -->
+                                        <t t-set = "index" t-value="1"/>
+                
+                                        <t t-foreach="o.first_results" t-as="result">
+                                            <tr>
+                                                <td name="td_index"><span t-esc="index"/>.</td>
+                                                <td name="td_subject"><span t-field="result.subject"/></td>
+                                                <td name="td_scored"><span t-field="result.obtained_marks"/></td>
+                                                <td name="td_total"><span t-field="result.total_marks"/></td>
+                                                <td name="td_percentage"><span t-field="result.percentage"/></td>
+                                                <td name="td_grade"><span t-field="result.grade"/></td>
+
+                                            </tr>
+                                            <t t-set="index" t-value="index+1"/>
+                                        </t>
+                                        <!-- <tr>
+                                            <td></td>
+                                            <td name="td_name"><span><b>Total</b></span></td>
+                                            <td name="td_total" class="text-center">
+                                                <b><span t-field="o.amount"/></b>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+
+                                </table>
+                                <p style="float:right;line-height: 2;font-size: 13px;">
+                                    <span t-if="o.first_total">Total Scored: <b><span t-field="o.first_total"/></b><br/></span>
+                                    <span t-if="o.first_percentage">Total Percentage: <b><span t-field="o.first_percentage"/>%</b><br/></span>
+                                    <span t-if="o.first_grade">Overall Grade: <b><span t-field="o.first_grade"/><br/></b></span>
+                                </p>
+                                <br/>
+                                <br/>
+                            </div>
+                            <div class="row">
+                                <h4>Second Assessment:</h4>
+                                <table>
+                                    <!-- In case we want to repeat the header, remove "display: table-row-group" -->
+                                    <thead style="display: table-row-group">
+                                        <tr>
+                                            <!-- added header to display indexes -->
+                                            <th name="th_index" class="text-start">SL No</th>
+                                            <th name="th_description" class="text-start">Subject</th>
+                                            <th name="th_scored" class="text-end">Scored Marks</th>
+                                            <th name="th_total" class="text-end">Total Marks</th>
+                                            <th name="th_percentage" class="text-end">Percentage</th>
+                                            <th name="th_grade" class="text-end">Grade</th>
+
+                                        </tr>
+                                    </thead>
+        
+                                    <tbody class="">
+                                        <!-- added variable 'index' to increment index on each iteration -->
+                                        <t t-set = "index" t-value="1"/>
+                
+                                        <t t-foreach="o.second_results" t-as="result">
+                                            <tr>
+                                                <td name="td_index"><span t-esc="index"/>.</td>
+                                                <td name="td_subject"><span t-field="result.subject"/></td>
+                                                <td name="td_scored"><span t-field="result.obtained_marks"/></td>
+                                                <td name="td_total"><span t-field="result.total_marks"/></td>
+                                                <td name="td_percentage"><span t-field="result.percentage"/></td>
+                                                <td name="td_grade"><span t-field="result.grade"/></td>
+
+                                            </tr>
+                                            <t t-set="index" t-value="index+1"/>
+                                        </t>
+                                        <!-- <tr>
+                                            <td></td>
+                                            <td name="td_name"><span><b>Total</b></span></td>
+                                            <td name="td_total" class="text-center">
+                                                <b><span t-field="o.amount"/></b>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+
+                                </table>
+                                <p style="float:right;line-height: 2;font-size: 13px;">
+                                    <span t-if="o.second_total">Total Scored: <b><span t-field="o.second_total"/></b><br/></span>
+                                    <span t-if="o.second_percentage">Total Percentage: <b><span t-field="o.second_percentage"/>%</b><br/></span>
+                                    <span t-if="o.second_grade">Overall Grade: <b><span t-field="o.second_grade"/><br/></b></span>
+                                </p>
+                            </div>
+
+                            <div class="row" t-if="o.final_results">
+                                <h4>Final Assessment:</h4>
+                                <table>
+                                    <!-- In case we want to repeat the header, remove "display: table-row-group" -->
+                                    <thead style="display: table-row-group">
+                                        <tr>
+                                            <!-- added header to display indexes -->
+                                            <th name="th_index" class="text-start">SL No</th>
+                                            <th name="th_description" class="text-start">Subject</th>
+                                            <th name="th_scored" class="text-end">Scored Marks</th>
+                                            <th name="th_total" class="text-end">Total Marks</th>
+                                            <th name="th_percentage" class="text-end">Percentage</th>
+                                            <th name="th_grade" class="text-end">Grade</th>
+
+                                        </tr>
+                                    </thead>
+        
+                                    <tbody class="">
+                                        <!-- added variable 'index' to increment index on each iteration -->
+                                        <t t-set = "index" t-value="1"/>
+                
+                                        <t t-foreach="o.final_results" t-as="result">
+                                            <tr>
+                                                <td name="td_index"><span t-esc="index"/>.</td>
+                                                <td name="td_subject"><span t-field="result.subject"/></td>
+                                                <td name="td_scored"><span t-field="result.obtained_marks"/></td>
+                                                <td name="td_total"><span t-field="result.total_marks"/></td>
+                                                <td name="td_percentage"><span t-field="result.percentage"/></td>
+                                                <td name="td_grade"><span t-field="result.grade"/></td>
+
+                                            </tr>
+                                            <t t-set="index" t-value="index+1"/>
+                                        </t>
+                                        <!-- <tr>
+                                            <td></td>
+                                            <td name="td_name"><span><b>Total</b></span></td>
+                                            <td name="td_total" class="text-center">
+                                                <b><span t-field="o.amount"/></b>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+
+                                </table>
+                                <p style="float:right;line-height: 2;font-size: 13px;">
+                                    <span t-if="o.final_total">Total Scored: <b><span t-field="o.final_total"/></b><br/></span>
+                                    <span t-if="o.final_percentage">Total Percentage: <b><span t-field="o.final_percentage"/>%</b><br/></span>
+                                    <span t-if="o.final_grade">Overall Grade: <b><span t-field="o.final_grade"/><br/></b></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <odoo>
+        <record id="paperformat_custom" model="report.paperformat">
+            <field name="name">Custom A4</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">22</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">27</field>
+            <field name="dpi">90</field>
+        </record>
+    </odoo>
+
+    <record id="student_result_report_action" model="ir.actions.report">
+        <field name="name">Student Report</field>
+        <field name="model">student.details</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">student_info_rizwaan.student_result_report</field>
+        <field name="report_file">student_info_rizwaan.student_result_report</field>
+        <field name="paperformat_id" ref="student_info_rizwaan.paperformat_custom" />
+        <field name="print_report_name">'Student Report - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_student_details"/>
+     </record>
+</odoo>
