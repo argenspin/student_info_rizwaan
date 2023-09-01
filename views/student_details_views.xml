@@ -120,7 +120,6 @@
                 <field name="rollno"/>
                 <field name="class_name"/>
                 <field name="course"/>
-
             </tree>
 
         </field>
@@ -135,7 +134,7 @@
     </record>
 
     <record id="student_details_action" model="ir.actions.act_window">
-        <field name="name">Student Details</field>
+        <field name="name">Student</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">student.details</field>
         <field name="view_mode">tree,form</field>
@@ -148,7 +147,7 @@
         name="Students" 
         id="student_details_menu"  
         action="student_details_action"
-        web_icon="logic_base/static/description/icon.png"
+        web_icon="student_info_rizwaan/static/description/icon.png"
         sequence="6"
     />
     <menuitem 

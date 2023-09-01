@@ -1,6 +1,7 @@
 {
     'name': "Students",
     'version': "14.0.1.0",
+    'author': 'Rizwaan',
     'sequence': "0",
     'depends': ['base','website','portal'],
     'data': [
