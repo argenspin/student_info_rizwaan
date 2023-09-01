@@ -116,13 +116,7 @@
                                             </tr>
                                             <t t-set="index" t-value="index+1"/>
                                         </t>
-                                        <!-- <tr>
-                                            <td></td>
-                                            <td name="td_name"><span><b>Total</b></span></td>
-                                            <td name="td_total" class="text-center">
-                                                <b><span t-field="o.amount"/></b>
-                                            </td>
-                                        </tr> -->
+
                                     </tbody>
 
                                 </table>
@@ -170,13 +164,6 @@
                                             </tr>
                                             <t t-set="index" t-value="index+1"/>
                                         </t>
-                                        <!-- <tr>
-                                            <td></td>
-                                            <td name="td_name"><span><b>Total</b></span></td>
-                                            <td name="td_total" class="text-center">
-                                                <b><span t-field="o.amount"/></b>
-                                            </td>
-                                        </tr> -->
                                     </tbody>
 
                                 </table>

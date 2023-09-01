@@ -27,46 +27,6 @@
                     </tr>
                 </t>
             </t>
-            <!-- <div id="wrap">
-                <div class="container">
-                    <style>
-                        p {
-                            font-size: 14;
-                        }
-                        table {
-                          font-family: arial, sans-serif;
-                          border-collapse: collapse;
-                          width: 100%;
-                        }
-                        
-                        td, th {
-                          font-size: 14px;
-                          border: 2px solid #dddddd;
-                          text-align: center;
-                          padding: 6px;
-                        }
-                        
-                        </style>
-                        <table class="mt-3 mb-3">
-                            <thead style="display: table-row-group">
-                                <tr>
-                                    <th name="th_name" class="text-start">Name</th>
-                                    <th name="th_rollno" class="text-start">Roll Number</th>
-                                    <th name="th_class" class="text-end">Class</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <t t-foreach="students" t-as="student">
-                                    <tr>
-                                        <td t-esc="student.name"/>
-                                        <td t-esc="student.rollno"/>
-                                        <td t-esc="student.class_name"/>
-                                    </tr>
-                                </t>
-                            </tbody>
-                        </table>
-                </div>
-            </div> -->
         </t>
     </template>
    </data>
