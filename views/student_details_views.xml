@@ -110,6 +110,22 @@
         </field>
     </record>
 
+    <record id="student_details_tree_view" model="ir.ui.view">
+        <field name="name">student.details.tree.view</field>
+        <field name="model">student.details</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="rollno"/>
+                <field name="class_name"/>
+                <field name="course"/>
+
+            </tree>
+
+        </field>
+    </record>
+
     <record id="seq_student_rollno" model="ir.sequence">
         <field name="name">Roll No</field>
         <field name="code">student.details</field>

@@ -85,7 +85,7 @@ class StudentDetails(models.Model):
                 for result in record.first_results:
                     total_marks+=result.total_marks
                     obtained_marks+=result.obtained_marks
-                record.first_total = total_marks
+                record.first_total = obtained_marks
                 if total_marks>0:
                     record.first_percentage = (obtained_marks/total_marks)*100
                     record.first_grade = self.grade_from_percentage(record.first_percentage)
@@ -104,7 +104,7 @@ class StudentDetails(models.Model):
                 for result in record.second_results:
                     total_marks+=result.total_marks
                     obtained_marks+=result.obtained_marks
-                record.second_total = total_marks
+                record.second_total = obtained_marks
                 if total_marks>0:
                     record.second_percentage = (obtained_marks/total_marks)*100
                     record.second_grade = self.grade_from_percentage(record.second_percentage)
@@ -122,7 +122,7 @@ class StudentDetails(models.Model):
                 for result in record.final_results:
                     total_marks+=result.total_marks
                     obtained_marks+=result.obtained_marks
-                record.final_total = total_marks
+                record.final_total = obtained_marks
                 if total_marks>0:
                     record.final_percentage = (obtained_marks/total_marks)*100
                     record.final_grade = self.grade_from_percentage(record.final_percentage)

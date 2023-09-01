@@ -37,7 +37,7 @@
 
                             </p>
                             <br/>
-                            <div class="row">
+                            <div class="row" t-if="o.first_results">
                                 <h4>First Assessment:</h4>
                                 <table>
                                     <!-- In case we want to repeat the header, remove "display: table-row-group" -->
@@ -70,25 +70,20 @@
                                             </tr>
                                             <t t-set="index" t-value="index+1"/>
                                         </t>
-                                        <!-- <tr>
-                                            <td></td>
-                                            <td name="td_name"><span><b>Total</b></span></td>
-                                            <td name="td_total" class="text-center">
-                                                <b><span t-field="o.amount"/></b>
-                                            </td>
-                                        </tr> -->
                                     </tbody>
 
                                 </table>
                                 <p style="float:right;line-height: 2;font-size: 13px;">
-                                    <span t-if="o.first_total">Total Scored: <b><span t-field="o.first_total"/></b><br/></span>
+                                    <span t-if="o.first_total">Total Marks: <b><span t-field="o.first_total"/></b><br/></span>
                                     <span t-if="o.first_percentage">Total Percentage: <b><span t-field="o.first_percentage"/>%</b><br/></span>
                                     <span t-if="o.first_grade">Overall Grade: <b><span t-field="o.first_grade"/><br/></b></span>
                                 </p>
                                 <br/>
                                 <br/>
+                                <br/>
+                                <br/>
                             </div>
-                            <div class="row">
+                            <div class="row" t-if="o.second_results">
                                 <h4>Second Assessment:</h4>
                                 <table>
                                     <!-- In case we want to repeat the header, remove "display: table-row-group" -->
@@ -132,10 +127,14 @@
 
                                 </table>
                                 <p style="float:right;line-height: 2;font-size: 13px;">
-                                    <span t-if="o.second_total">Total Scored: <b><span t-field="o.second_total"/></b><br/></span>
+                                    <span t-if="o.second_total">Total Marks: <b><span t-field="o.second_total"/></b><br/></span>
                                     <span t-if="o.second_percentage">Total Percentage: <b><span t-field="o.second_percentage"/>%</b><br/></span>
                                     <span t-if="o.second_grade">Overall Grade: <b><span t-field="o.second_grade"/><br/></b></span>
                                 </p>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
                             </div>
 
                             <div class="row" t-if="o.final_results">
@@ -182,7 +181,7 @@
 
                                 </table>
                                 <p style="float:right;line-height: 2;font-size: 13px;">
-                                    <span t-if="o.final_total">Total Scored: <b><span t-field="o.final_total"/></b><br/></span>
+                                    <span t-if="o.final_total">Total Marks: <b><span t-field="o.final_total"/></b><br/></span>
                                     <span t-if="o.final_percentage">Total Percentage: <b><span t-field="o.final_percentage"/>%</b><br/></span>
                                     <span t-if="o.final_grade">Overall Grade: <b><span t-field="o.final_grade"/><br/></b></span>
                                 </p>
